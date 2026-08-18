@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chocolate Sales Dashboard — Overview</title>
+<style>
+:root{
+  --orange:#EF4311;
+  --navy:#061321;
+  --green:#7FB62B;
+  --blue:#257BE6;
+  --mist:#F2F2F2;
+  --red:#DB2B33;
+  --card:#1E2A38;
+  --card2:#2A3A4A;
+  --text1:#FFFFFF;
+  --text2:#C7CCD2;
+  --text3:#8B929A;
+  --border:#33404E;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--navy);color:var(--text1);font-family:"Segoe UI",-apple-system,Arial,sans-serif;}
+body{display:flex;min-height:100vh;}
+
+#sidebar{
+  position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;
+  width:230px;flex:none;background:#0A1826;border-right:1px solid var(--border);
+  padding:24px 14px 40px;
+}
+#sidebar h1{font-size:16px;margin:0 0 18px;line-height:1.3;}
+nav.toc a{
+  display:block;padding:9px 10px;border-radius:6px;color:var(--text2);
+  text-decoration:none;font-size:13.5px;border-left:2px solid transparent;margin-bottom:1px;
+}
+nav.toc a:hover{background:var(--card);color:var(--text1);}
+nav.toc a.active{background:rgba(239,67,17,.15);color:var(--text1);border-left-color:var(--orange);font-weight:600;}
+
+#main{flex:1;min-width:0;padding:44px 56px 100px;max-width:900px;}
+section{margin-bottom:60px;scroll-margin-top:20px;}
+section h2{font-size:24px;margin:0 0 6px;}
+section > .lede{color:var(--text2);font-size:15px;margin:8px 0 24px;line-height:1.6;max-width:680px;}
+h3{font-size:16px;margin:26px 0 10px;color:var(--text1);}
+p{color:var(--text2);font-size:14px;line-height:1.65;}
+b{color:var(--text1);}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;}
+.grid{display:grid;gap:14px;}
+.grid-2{grid-template-columns:1fr 1fr;}
+.grid-3{grid-template-columns:1fr 1fr 1fr;}
+@media(max-width:760px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;}
+.kpi .label{font-size:12px;color:var(--text3);}
+.kpi .value{font-size:22px;font-weight:700;margin-top:6px;}
+.kpi.hero{border-color:var(--orange);background:rgba(239,67,17,.10);}
+
+.bar-row{display:flex;align-items:center;gap:12px;margin:8px 0;}
+.bar-row .label{width:150px;font-size:13px;color:var(--text2);flex:none;}
+.bar-track{flex:1;background:#0F1E2C;border-radius:5px;height:20px;overflow:hidden;}
+.bar-fill{height:100%;background:var(--orange);border-radius:5px;}
+.bar-val{width:80px;text-align:right;font-size:13px;color:var(--text2);flex:none;}
+
+.swatch{border-radius:10px;height:64px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5);}
+.swatch-label{display:block;text-align:center;font-size:12.5px;color:var(--text2);margin-top:6px;}
+
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;}
+.badge.high{background:rgba(239,67,17,.18);color:#ff8f5c;}
+.badge.medium{background:rgba(37,123,230,.18);color:#7fb8f5;}
+
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:8px 0;}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--border);color:var(--text2);}
+th{color:var(--text3);font-weight:600;font-size:12px;}
+td.num,th.num{text-align:right;}
+
+.pill-list{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;}
+.pill{font-size:13px;background:var(--card);border:1px solid var(--border);padding:6px 12px;border-radius:999px;color:var(--text2);}
+
+.finding{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;}
+.finding b{display:block;margin-bottom:6px;font-size:14.5px;}
+
+footer{color:var(--text3);font-size:12px;padding:20px 0 60px;border-top:1px solid var(--border);margin-top:10px;}
+</style>
+</head>
+<body>
+
+<aside id="sidebar">
+  <h1>Chocolate Sales<br>Dashboard</h1>
+  <nav class="toc" id="toc">
+    <a href="#about">About This Project</a>
+    <a href="#look">The Look</a>
+    <a href="#overview">Overview Page</a>
+    <a href="#products">Product Insights</a>
+    <a href="#sales">Sales Team</a>
+    <a href="#findings">Findings &amp; Ideas</a>
+  </nav>
+</aside>
+
+<main id="main">
+
+<section id="about">
+  <h2>About This Project</h2>
+  <p class="lede">A simple dashboard that shows how the chocolate business is doing — revenue, best-selling products, and how the sales team is performing. It has 4 pages, all built with the real sales numbers.</p>
+  <div class="card">
+    <p style="margin:0">Every number shown across the 4 pages comes directly from the real sales data — nothing is made up or estimated.</p>
+  </div>
+</section>
+
+<section id="look">
+  <h2>The Look</h2>
+  <p class="lede">A clean, dark theme with one main accent color (orange) and simple, easy-to-read cards.</p>
+  <div class="grid grid-3">
+    <div><div class="swatch" style="background:var(--orange)">Orange</div><span class="swatch-label">Main accent / highlights</span></div>
+    <div><div class="swatch" style="background:var(--navy)">Navy</div><span class="swatch-label">Background</span></div>
+    <div><div class="swatch" style="background:var(--blue)">Blue</div><span class="swatch-label">Secondary highlights</span></div>
+    <div><div class="swatch" style="background:var(--green);color:#061321;text-shadow:none">Green</div><span class="swatch-label">Good / positive</span></div>
+    <div><div class="swatch" style="background:var(--red)">Red</div><span class="swatch-label">Needs attention</span></div>
+    <div><div class="swatch" style="background:var(--mist);color:#061321;text-shadow:none">Mist</div><span class="swatch-label">Light text areas</span></div>
+  </div>
+</section>
+
+<section id="overview">
+  <h2>Page 1 — Overview</h2>
+  <p class="lede">The big picture: how much revenue came in, how many boxes were sold, and where it's coming from.</p>
+
+  <div class="grid" style="grid-template-columns:1.4fr 1fr 1fr 1fr">
+    <div class="kpi hero"><div class="label">Total Revenue</div><div class="value">$44.7M</div></div>
+    <div class="kpi"><div class="label">Boxes Sold</div><div class="value">3.78M</div></div>
+    <div class="kpi"><div class="label">Total Profit</div><div class="value">$20.2M</div></div>
+    <div class="kpi"><div class="label">Top Salesperson</div><div class="value" style="font-size:16px">Barr Faughny</div></div>
+  </div>
+
+  <h3>Revenue by region</h3>
+  <div class="bar-row"><span class="label">APAC</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-val">$23.6M</span></div>
+  <div class="bar-row"><span class="label">Americas</span><div class="bar-track"><div class="bar-fill" style="width:45%"></div></div><span class="bar-val">$10.6M</span></div>
+  <div class="bar-row"><span class="label">Europe</span><div class="bar-track"><div class="bar-fill" style="width:45%"></div></div><span class="bar-val">$10.5M</span></div>
+  <p>APAC brings in more than half of all revenue — over double either of the other two regions on its own.</p>
+
+  <h3>Orders</h3>
+  <p>7,905 orders total — 80% were delivered, the rest are shipped, placed, or a small number cancelled.</p>
+</section>
+
+<section id="products">
+  <h2>Page 2 — Product Insights</h2>
+  <p class="lede">Which products and categories make the most money, and which are the most profitable.</p>
+
+  <h3>Revenue by category</h3>
+  <div class="bar-row"><span class="label">Bars</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-val">$22.2M</span></div>
+  <div class="bar-row"><span class="label">Bites</span><div class="bar-track"><div class="bar-fill" style="width:55%"></div></div><span class="bar-val">$12.1M</span></div>
+  <div class="bar-row"><span class="label">Other</span><div class="bar-track"><div class="bar-fill" style="width:47%"></div></div><span class="bar-val">$10.4M</span></div>
+
+  <h3>Profit margin by category</h3>
+  <table>
+    <tr><th>Category</th><th class="num">Profit</th><th class="num">Margin</th></tr>
+    <tr><td>Bites</td><td class="num">$7.9M</td><td class="num" style="color:var(--green)">65.3%</td></tr>
+    <tr><td>Bars</td><td class="num">$7.9M</td><td class="num">35.6%</td></tr>
+    <tr><td>Other</td><td class="num">$4.4M</td><td class="num">42.6%</td></tr>
+  </table>
+  <p>Bites sells the least but keeps the most profit per dollar — almost double the margin of Bars, even though Bars sells almost twice as much.</p>
+
+  <p>On this page, clicking a category row opens up to show the individual products inside it, so the table stays short and simple until you want more detail.</p>
+</section>
+
+<section id="sales">
+  <h2>Page 3 — Sales Team</h2>
+  <p class="lede">Who's performing best on the sales team, and who's selling a lot but not bringing in much revenue per box.</p>
+
+  <div class="grid grid-3">
+    <div class="kpi hero"><div class="label">Top Salesperson</div><div class="value" style="font-size:16px">Barr Faughny</div></div>
+    <div class="kpi"><div class="label">Avg. Sales / Person</div><div class="value">$1.79M</div></div>
+    <div class="kpi"><div class="label">Avg. Boxes / Person</div><div class="value">151K</div></div>
+  </div>
+
+  <div class="grid grid-2">
+    <div>
+      <h3>Top 5</h3>
+      <div class="bar-row"><span class="label">Barr Faughny</span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-val">$3.66M</span></div>
+      <div class="bar-row"><span class="label">Ches Bonnell</span><div class="bar-track"><div class="bar-fill" style="width:86%"></div></div><span class="bar-val">$3.15M</span></div>
+      <div class="bar-row"><span class="label">Brien Boise</span><div class="bar-track"><div class="bar-fill" style="width:77%"></div></div><span class="bar-val">$2.81M</span></div>
+    </div>
+    <div>
+      <h3>Bottom 5</h3>
+      <div class="bar-row"><span class="label">Van Tuxwell</span><div class="bar-track"><div class="bar-fill" style="width:55%;background:var(--blue)"></div></div><span class="bar-val">$561K</span></div>
+      <div class="bar-row"><span class="label">Karlen McCaffrey</span><div class="bar-track"><div class="bar-fill" style="width:60%;background:var(--blue)"></div></div><span class="bar-val">$612K</span></div>
+      <div class="bar-row"><span class="label">Madelene Upcott</span><div class="bar-track"><div class="bar-fill" style="width:63%;background:var(--blue)"></div></div><span class="bar-val">$640K</span></div>
+    </div>
+  </div>
+
+  <h3>Worth a closer look</h3>
+  <p>Six salespeople sell a high number of boxes, but their revenue per box is below average. That's a sign they may be over-discounting or selling lower-priced items: <b>Jehu Rudeforth, Gunar Cockshoot, Beverie Moffet, Andria Kimpton, Camilla Castle, Brien Boise.</b></p>
+</section>
+
+<section id="findings">
+  <h2>Findings &amp; Ideas</h2>
+  <p class="lede">What stood out, and what to do about it.</p>
+
+  <div class="grid grid-2">
+    <div class="finding"><b>APAC drives over half of all revenue.</b><p style="margin:0">Worth understanding why Americas and Europe lag so far behind.</p></div>
+    <div class="finding"><b>Bites is small but very profitable.</b><p style="margin:0">Might be worth more marketing push.</p></div>
+    <div class="finding"><b>6 salespeople sell a lot but earn less per box.</b><p style="margin:0">Worth a look at their pricing/discounts.</p></div>
+    <div class="finding"><b>The October 2024 dip isn't real.</b><p style="margin:0">The data just stops partway through that month — not an actual sales drop.</p></div>
+  </div>
+
+  <h3>Suggested next steps</h3>
+  <table>
+    <tr><td>Look into why Americas and Europe lag behind APAC</td><td><span class="badge high">High</span></td></tr>
+    <tr><td>Review pricing with the 6 flagged salespeople</td><td><span class="badge high">High</span></td></tr>
+    <tr><td>Give Bites more marketing focus</td><td><span class="badge medium">Medium</span></td></tr>
+    <tr><td>Flag the October 2024 data as incomplete in future reports</td><td><span class="badge medium">Medium</span></td></tr>
+  </table>
+</section>
+
+<footer>Chocolate Sales Dashboard — plain-language overview, no setup needed to view.</footer>
+
+</main>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function setActive(id){
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#'+id); });
+  }
+  if('IntersectionObserver' in window){
+    var observer = new IntersectionObserver(function(entries){
+      var visible = entries.filter(function(e){ return e.isIntersecting; });
+      if(visible.length){
+        visible.sort(function(a,b){ return a.boundingClientRect.top - b.boundingClientRect.top; });
+        setActive(visible[0].target.id);
+      }
+    }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+    sections.forEach(function(s){ if(s) observer.observe(s); });
+  }
+})();
+</script>
+
+</body>
+</html>
