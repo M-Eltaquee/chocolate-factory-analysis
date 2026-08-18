@@ -2,7 +2,7 @@
 
 ### 🔗 [My LinkedIn](https://www.linkedin.com/in/saleh2023/)
 ### 📥 [Download the PBIX File](https://github.com/M-Eltaquee/chocolate-factory-analysis/blob/main/Chocolate%20Sales%20Data.xlsx?raw=true)
-### 🔗 [Project Documentation](https://github.com/M-Eltaquee/chocolate-factory-analysis/blob/main/PROJECT-DOCUMENTATION.html)
+**📄 [Full Documentation](https://htmlpreview.github.io/?https://github.com/M-Eltaquee/chocolate-factory-analysis/blob/main/PROJECT-DOCUMENTATION.html)**
 
 <br>
 <div align="center">
